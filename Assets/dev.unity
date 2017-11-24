@@ -112,6 +112,47 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &653734169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 653734170}
+  - component: {fileID: 653734171}
+  m_Layer: 0
+  m_Name: Planets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &653734170
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653734169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &653734171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 653734169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516cba6ffa6bab64cba6c88d7016dba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sector: {fileID: 1444925357520816, guid: cae4609d7f085784ea8cc4a8c74dc549, type: 2}
 --- !u!1 &684815319
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +351,6 @@ GameObject:
   m_Component:
   - component: {fileID: 940990896}
   - component: {fileID: 940990899}
-  - component: {fileID: 940990898}
   - component: {fileID: 940990897}
   m_Layer: 0
   m_Name: Cube (2)
@@ -366,18 +406,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &940990898
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 940990895}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &940990899
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -394,7 +422,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1271681041}
   - component: {fileID: 1271681044}
-  - component: {fileID: 1271681043}
   - component: {fileID: 1271681042}
   m_Layer: 0
   m_Name: Cube (1)
@@ -450,18 +477,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1271681043
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1271681040}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1271681044
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -478,7 +493,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1403755121}
   - component: {fileID: 1403755124}
-  - component: {fileID: 1403755123}
   - component: {fileID: 1403755122}
   m_Layer: 0
   m_Name: Cube
@@ -534,18 +548,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1403755123
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1403755120}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1403755124
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -562,6 +564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1744625196}
   - component: {fileID: 1744625195}
+  - component: {fileID: 1744625197}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -581,7 +584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  startFuel: 1
+  startFuel: 2
   fuelBurnRate: 0.1
 --- !u!4 &1744625196
 Transform:
@@ -597,3 +600,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1744625197
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1744625194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4, y: 1, z: 2.81}
+  m_Center: {x: 0, y: 0.19, z: 0}
