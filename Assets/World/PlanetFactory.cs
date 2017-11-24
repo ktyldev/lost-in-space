@@ -36,6 +36,10 @@ public class PlanetFactory : MonoBehaviour
     {
         var newSector = Instantiate(sector, transform).GetComponent<Sector>();
         newSector.transform.position = position;
+        newSector.OnEdgeReached.AddListener(d =>
+        {
+            print("reached edge of sector " + d);
+        });
 
         return newSector;
     }
