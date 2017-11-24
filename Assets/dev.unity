@@ -581,6 +581,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  startFuel: 1
+  fuelBurnRate: 0.1
 --- !u!4 &1744625196
 Transform:
   m_ObjectHideFlags: 0
