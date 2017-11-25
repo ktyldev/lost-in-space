@@ -8,7 +8,8 @@ public class Planet : MonoBehaviour
     public GameObject[] elements;
     public int maxElementAmount;
     public int minElementAmount;
-    public Material[] materials;
+    public Material[] surfaceMaterials;
+    public Material[] ringMaterials;
     
     private UIManager _ui;
     private Dictionary<Element, int> _elements;
@@ -29,7 +30,8 @@ public class Planet : MonoBehaviour
         var renderer = GetComponentInChildren<Renderer>();
 
         var mats = renderer.materials;
-        mats[2] = materials[Random.Range(0, materials.Length)];
+        mats[0] = ringMaterials[Random.Range(0, ringMaterials.Length)];
+        mats[2] = surfaceMaterials[Random.Range(0, surfaceMaterials.Length)];
         renderer.materials = mats;
     }
 

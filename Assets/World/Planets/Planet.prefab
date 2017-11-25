@@ -309,11 +309,18 @@ MonoBehaviour:
   - {fileID: 1778659306462152, guid: de50b726151ea28419cedca413188cd2, type: 2}
   maxElementAmount: 0
   minElementAmount: 10
-  materials:
+  surfaceMaterials:
   - {fileID: 2100000, guid: 64d066c7b117f04418cfb2b88deab992, type: 2}
   - {fileID: 2100000, guid: d82b8e2b854df3f4092266c39441a2bc, type: 2}
   - {fileID: 2100000, guid: 92f7f7a30bc90e94da508502e51c2e73, type: 2}
   - {fileID: 2100000, guid: 9adef3491cf8d6947bb9a95bb3bea7f0, type: 2}
+  - {fileID: 2100000, guid: f3df68f163f461d49a4e2e8ede0682e6, type: 2}
+  - {fileID: 2100000, guid: dcdf072108892774aaaa3930b8b5ecbf, type: 2}
+  - {fileID: 2100000, guid: 9c19c343de42b6341b73548933d7828a, type: 2}
+  ringMaterials:
+  - {fileID: 2100000, guid: f9d34bba0e4911b429160594d9eefd6f, type: 2}
+  - {fileID: 2100000, guid: 91054e2ae25518e41baa3f9cf0315cbf, type: 2}
+  - {fileID: 2100000, guid: d98031fc26570ce438513b3a65fed566, type: 2}
 --- !u!135 &135879941647125664
 SphereCollider:
   m_ObjectHideFlags: 1
