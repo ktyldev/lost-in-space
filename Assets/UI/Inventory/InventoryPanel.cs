@@ -38,7 +38,7 @@ public class InventoryPanel : MonoBehaviour {
     
     public void MakeFuel()
     {
-        print("Make Fuel");
+        _crafter.MakeFuel();
     }
 
     public void Forward()

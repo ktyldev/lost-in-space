@@ -35,6 +35,11 @@ public class Inventory : MonoBehaviour {
             .OrderBy(e => e.Key.atomicNumber)
             .ToArray();
     }
+    
+    public bool Contains(Element element, int amount)
+    {
+        return _elements.ContainsKey(element) && _elements[element] >= amount;
+    }
 
     private bool Contains(int number)
     {

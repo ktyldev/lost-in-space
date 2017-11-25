@@ -33,6 +33,11 @@ public class Ship : MonoBehaviour
         Move();
     }
 
+    public void Refuel()
+    {
+        FuelRemaining = startFuel;
+    }
+
     private void Move()
     {
         var moveDirection = new Vector3(

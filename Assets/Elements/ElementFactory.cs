@@ -7,16 +7,32 @@ public class ElementFactory : MonoBehaviour
 {
     public Sprite[] elementSprites;
     public GameObject element;
-    
+    public int startingElements = 5;
+
+    private int _availableElements;
     private Element[] _elements;
 
     void Awake()
     {
+        _availableElements = startingElements;   
         elementSprites = ShuffleArray(elementSprites);
         _elements = new Element[elementSprites.Length];
         for (int i = 0; i < elementSprites.Length; i++)
         {
             _elements[i] = MakeElement(i + 1, elementSprites[i]);
+        }
+    }
+
+    private void Start()
+    {
+    }
+
+    private IEnumerator IncreaseAvailableElements()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(60);
+            _availableElements++;
         }
     }
 
@@ -46,7 +62,11 @@ public class ElementFactory : MonoBehaviour
 
     public Element[] GetRandomElements(int number)
     {
-        return ShuffleArray(_elements).Take(number).ToArray();
+        var availableElements = _elements
+            .Where(e => e.atomicNumber <= _availableElements)
+            .ToArray();
+
+        return ShuffleArray(availableElements).Take(number).ToArray();
     }
 
     private Element MakeElement(int atomicNumber, Sprite sprite)

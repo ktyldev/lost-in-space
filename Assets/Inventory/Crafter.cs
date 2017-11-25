@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class Crafter : MonoBehaviour
     private ElementFactory _elements;
     private UnityEvent _OnAddItem;
     private Inventory _inventory;
+    private Ship _ship;
 
     void Awake()
     {
@@ -28,7 +30,10 @@ public class Crafter : MonoBehaviour
     void Start()
     {
         _elements = GameObject.FindGameObjectWithTag(GameTags.Elements).GetComponent<ElementFactory>();
-        _inventory = GameObject.FindGameObjectWithTag(GameTags.Player).GetComponent<Inventory>();
+
+        var player = GameObject.FindGameObjectWithTag(GameTags.Player);
+        _inventory = player.GetComponent<Inventory>();
+        _ship = player.GetComponent<Ship>();
 
         craftButton.GetComponent<Button>().interactable = false;
 
@@ -42,6 +47,11 @@ public class Crafter : MonoBehaviour
             
             craftButton.GetComponent<Button>().interactable = _elements.ElementExists(_items[0].atomicNumber + _items[1].atomicNumber);
         });
+    }
+
+    public void MakeFuel()
+    {
+        _ship.Refuel();
     }
 
     // Update is called once per frame
