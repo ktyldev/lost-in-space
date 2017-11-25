@@ -3,25 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ElementFactory : MonoBehaviour {
-
+public class ElementFactory : MonoBehaviour
+{
     public GameObject[] elements;
 
     private Element[] _elements;
 
-	// Use this for initialization
-	void Start () {
+    void Awake()
+    {
         _elements = elements
             .Select(_ => Instantiate(_, transform).GetComponent<Element>())
             .ToArray();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
 
-    public List<Element> GetElements(int number)
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public Element[] GetElements()
+    {
+        return _elements;
+    }
+
+    public Element[] GetElements(int number)
     {
         for (int i = 0; i < _elements.Length; i++)
         {
@@ -31,6 +37,6 @@ public class ElementFactory : MonoBehaviour {
             _elements[r] = tmp;
         }
 
-        return _elements.Take(number).ToList();
+        return _elements.Take(number).ToArray();
     }
 }

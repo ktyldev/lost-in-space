@@ -9,16 +9,30 @@ public class Ship : MonoBehaviour
     public float fuelBurnRate;
 
     public float FuelRemaining { get; private set; }
-    
+
+    private Inventory _inv;
+    private Planet _nearbyPlanet;
 
     // Use this for initialization
     void Start()
     {
         FuelRemaining = startFuel;
+        _inv = GetComponentInChildren<Inventory>();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        if (_nearbyPlanet != null && Input.GetKeyDown(KeyCode.Space))
+        {
+            print("mining");
+            Mine();
+        }
+
+        Move();
+    }
+
+    private void Move()
     {
         var moveDirection = new Vector3(
             Input.GetAxis(GameTags.Horizontal),
@@ -37,11 +51,34 @@ public class Ship : MonoBehaviour
         transform.LookAt(transform.position + moveDirection);
     }
 
+    private void Mine()
+    {
+        _inv.AddElements(_nearbyPlanet.GetElements());
+    }
+
     private Vector3 GetMoveDirection()
     {
         return new Vector3(
             Input.GetAxis(GameTags.Horizontal),
             0,
             Input.GetAxis(GameTags.Vertical)).normalized;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        var planet = other.gameObject.GetComponent<Planet>();
+        if (planet != null)
+        {
+            _nearbyPlanet = planet;
+        }    
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        var planet = other.gameObject.GetComponent<Planet>();
+        if (planet == _nearbyPlanet)
+        {
+            _nearbyPlanet = null;
+        }
     }
 }

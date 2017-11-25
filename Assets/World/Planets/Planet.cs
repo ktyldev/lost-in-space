@@ -8,13 +8,15 @@ public class Planet : MonoBehaviour
     public GameObject[] elements;
     public int maxElementAmount;
     public int minElementAmount;
-
+    
     private UIManager _ui;
     private Dictionary<Element, int> _elements;
-
+    private bool _hasElements;
+    
     void Awake()
     {
         _elements = new Dictionary<Element, int>();
+        _hasElements = true;
     }
 
     // Use this for initialization
@@ -53,9 +55,16 @@ public class Planet : MonoBehaviour
         var numberOfElements = Random.Range(0, elements.Length);
         var fac = GameObject.FindGameObjectWithTag(GameTags.Elements)
             .GetComponent<ElementFactory>();
+
         foreach (var e in fac.GetElements(numberOfElements))
         {
             _elements[e] = Random.Range(minElementAmount, maxElementAmount);
         }
+    }
+
+    public Dictionary<Element, int> GetElements()
+    {
+        _hasElements = false;
+        return _elements;
     }
 }
