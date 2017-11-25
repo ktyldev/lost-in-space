@@ -19,19 +19,7 @@ public class PlanetFactory : MonoBehaviour
     {
         GenerateSector(new Vector2Int());
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private IEnumerator GenerateSectors()
-    {
-        print("Polling sector generation");
-        yield return new WaitForSeconds(1);
-    }
-
+    
     private void GenerateNeighbours(Sector sector)
     {
         var currentPoint = _sectors.Single(_ => _.Value == sector).Key;
@@ -60,7 +48,6 @@ public class PlanetFactory : MonoBehaviour
 
     private void GenerateSector(Vector2Int point)
     {
-
         var newSector = Instantiate(sectorTemplate, transform).GetComponent<Sector>();
         var newPosition = new Vector3(
             point.x * newSector.size,

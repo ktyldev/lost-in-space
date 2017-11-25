@@ -32,7 +32,6 @@ public class Sector : MonoBehaviour
         if (player == null)
             return;
 
-        print("OnEnter");
         OnEnter.Invoke();
     }
 
