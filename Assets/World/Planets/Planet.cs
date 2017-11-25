@@ -81,7 +81,7 @@ public class Planet : MonoBehaviour
         var fac = GameObject.FindGameObjectWithTag(GameTags.Elements)
             .GetComponent<ElementFactory>();
 
-        foreach (var e in fac.GetElements(numberOfElements))
+        foreach (var e in fac.GetRandomElements(numberOfElements))
         {
             _elements[e] = Random.Range(minElementAmount, maxElementAmount);
         }

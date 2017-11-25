@@ -5,15 +5,20 @@ using UnityEngine;
 
 public class ElementFactory : MonoBehaviour
 {
+    public Sprite[] elementSprites;
+    public GameObject element;
     public GameObject[] elements;
 
     private Element[] _elements;
 
     void Awake()
     {
-        _elements = elements
-            .Select(_ => Instantiate(_, transform).GetComponent<Element>())
-            .ToArray();
+        elementSprites = ShuffleArray(elementSprites);
+        _elements = new Element[elementSprites.Length];
+        for (int i = 0; i < elementSprites.Length; i++)
+        {
+            _elements[i] = MakeElement(i + 1, elementSprites[i]);
+        }
     }
 
     // Update is called once per frame
@@ -27,16 +32,32 @@ public class ElementFactory : MonoBehaviour
         return _elements;
     }
 
-    public Element[] GetElements(int number)
+    public Element[] GetRandomElements(int number)
     {
-        for (int i = 0; i < _elements.Length; i++)
+        return ShuffleArray(_elements).Take(number).ToArray();
+    }
+
+    private Element MakeElement(int atomicNumber, Sprite sprite)
+    {
+        var newElement = Instantiate(element, transform).GetComponent<Element>();
+        newElement.elementName = sprite.name;
+        newElement.sprite = sprite;
+        newElement.atomicNumber = atomicNumber;
+
+        print(string.Format("Created element: {0} {1}", newElement.atomicNumber, newElement));
+        return newElement;
+    }
+
+    private T[] ShuffleArray<T>(T[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
         {
-            var tmp = _elements[i];
-            var r = Random.Range(i, _elements.Length);
-            _elements[i] = _elements[r];
-            _elements[r] = tmp;
+            var tmp = array[i];
+            var r = Random.Range(i, array.Length);
+            array[i] = array[r];
+            array[r] = tmp;
         }
 
-        return _elements.Take(number).ToArray();
+        return array;
     }
 }
