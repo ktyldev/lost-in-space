@@ -50,7 +50,7 @@ public class Sector : MonoBehaviour
             var y = Random.Range(0f, size) - size / 2;
 
             var planetPosition = new Vector3(x, planetVerticalOffset, y);
-            if (planetPositions.Any(p => Vector3.Distance(p, planetPosition) < minPlanetSeperation) || Vector3.Distance(playerPosition, planetPosition) < minPlanetSeperation)
+            if (planetPositions.Any(p => Vector3.Distance(p, planetPosition) < minPlanetSeperation) || Vector3.Distance(playerPosition, planetPosition) < 20)
             {
                 failedAttempts++;
                 continue;
