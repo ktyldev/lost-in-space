@@ -152,7 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516cba6ffa6bab64cba6c88d7016dba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sector: {fileID: 1444925357520816, guid: cae4609d7f085784ea8cc4a8c74dc549, type: 2}
+  sectorTemplate: {fileID: 1444925357520816, guid: cae4609d7f085784ea8cc4a8c74dc549,
+    type: 2}
+  sectorSize: 100
 --- !u!1 &684815319
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,8 +586,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46df8168025087d489e80b2534a44c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
-  startFuel: 2
+  speed: 30
+  startFuel: 10
   fuelBurnRate: 0.1
 --- !u!4 &1744625196
 Transform:

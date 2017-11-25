@@ -5,35 +5,20 @@ using UnityEngine.Events;
 
 public class Sector : MonoBehaviour
 {
-    public Bounds bounds;
-    public EdgeReachedEvent OnEdgeReached { get; private set; }
-
-    private SectorEdge[] _edges;
-    private Transform _player;
+    public UnityEvent OnEnter { get; private set; }
 
     void Awake()
     {
-        OnEdgeReached = new EdgeReachedEvent();    
+        OnEnter = new UnityEvent();
     }
 
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        _player = GameObject.FindGameObjectWithTag(GameTags.Player).transform;
+        var player = other.gameObject.GetComponent<Ship>();
+        if (player == null)
+            return;
 
-        _edges = transform.GetComponentsInChildren<SectorEdge>();
-        foreach (var edge in _edges)
-        {
-            edge.ShipEnter.AddListener(() => 
-            {
-                if (!bounds.Contains(_player.transform.position))
-                    return;
-                
-                OnEdgeReached.Invoke(edge.direction);
-            });
-        }
-    }
-
-    public class EdgeReachedEvent : UnityEvent<Vector3>
-    {
+        print("OnEnter");
+        OnEnter.Invoke();
     }
 }
