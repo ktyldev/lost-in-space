@@ -8,12 +8,13 @@ public class Ship : MonoBehaviour
     public float startFuel;
     public float fuelBurnRate;
 
-    private float _fuel;
+    public float FuelRemaining { get; private set; }
+    
 
     // Use this for initialization
     void Start()
     {
-        _fuel = startFuel;
+        FuelRemaining = startFuel;
     }
 
     // Update is called once per frame
@@ -27,9 +28,9 @@ public class Ship : MonoBehaviour
         if (moveDirection == Vector3.zero)
             return;
 
-        _fuel -= fuelBurnRate * Time.deltaTime;
+        FuelRemaining -= fuelBurnRate * Time.deltaTime;
 
-        if (_fuel <= 0)
+        if (FuelRemaining <= 0)
             return;
         
         transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
