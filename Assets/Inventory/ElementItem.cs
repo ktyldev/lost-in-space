@@ -10,7 +10,7 @@ public class ElementItem : MonoBehaviour
     public int Amount { get; set; }
 
     public GameObject elementImage;
-
+    
     // Use this for initialization
     void Start()
     {
@@ -20,5 +20,16 @@ public class ElementItem : MonoBehaviour
         elementImage.SetActive(true);
         elementImage.GetComponent<Image>().sprite = Element.sprite;
         GetComponentInChildren<Text>().text = Amount.ToString();
+
+        var button = GetComponent<Button>();
+
+        button.onClick.AddListener(() =>
+        {
+            var inv = GameObject.FindGameObjectWithTag(GameTags.Player).GetComponent<Inventory>();
+            inv.Remove(Element);
+
+            var panel = GetComponentInParent<InventoryPanel>();
+            panel.AddCraftItem(Element);
+        });
     }    
 }

@@ -36,11 +36,11 @@ public class Inventory : MonoBehaviour {
             .ToArray();
     }
 
-    private bool Contains(int[] atomicNumbers)
+    private bool Contains(int number)
     {
-        return atomicNumbers.Any(n => !_elements.Values.Contains(n));
+        return _elements.Keys.Select(k => k.atomicNumber).Any(i => i == number);
     }
-
+    
     public void AddElements(Dictionary<Element, int> elements)
     {
         foreach (var item in elements)
@@ -54,5 +54,14 @@ public class Inventory : MonoBehaviour {
     {
         var element = _elements.Keys.Single(e => e.atomicNumber == atomicNumber);
         _elements[element] += amount;
+    }
+
+    public void Remove(Element element)
+    {
+        if (!Contains(element.atomicNumber))
+            throw new System.Exception();
+
+        _elements[element]--;
+        OnChange.Invoke();
     }
 }

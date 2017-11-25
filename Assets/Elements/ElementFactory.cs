@@ -26,6 +26,19 @@ public class ElementFactory : MonoBehaviour
 
     }
 
+    public bool ElementExists(int number)
+    {
+        return _elements.Length >= number;
+    }
+
+    public Element GetElement(int number)
+    {
+        if (!ElementExists(number))
+            throw new System.Exception();
+
+        return _elements[number - 1];
+    }
+
     public Element[] GetElements()
     {
         return _elements;

@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a06ec6e4d4d8e54cba06da8cb7e6bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNumberOfElements: 3
+  maxNumberOfElements: 4
   maxElementAmount: 3
   minElementAmount: 0
   graphicsRoot: {fileID: 1477783256018576}

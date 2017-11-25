@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InventoryPanel : MonoBehaviour {
@@ -7,11 +8,18 @@ public class InventoryPanel : MonoBehaviour {
     private bool _isHidden = true;
     private Animator _animator;
     private ElementRow _row;
+    private Element[] _craftingElements;
+    private Crafter _crafter;
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
+        _craftingElements = new Element[2];    
+    }
+    
+    void Start () {
         _animator = GetComponent<Animator>();
         _row = GetComponentInChildren<ElementRow>();
+        _crafter = GetComponentInChildren<Crafter>();
 	}
 	
 	// Update is called once per frame
@@ -23,6 +31,11 @@ public class InventoryPanel : MonoBehaviour {
         }
 	}
 
+    public void AddCraftItem(Element element)
+    {
+        _crafter.AddCraftingItem(element);
+    }
+
     public void Craft()
     {
         print("Craft");
@@ -30,7 +43,7 @@ public class InventoryPanel : MonoBehaviour {
 
     public void Cancel()
     {
-        print("Cancel");
+        _crafter.Cancel();
     }
 
     public void MakeFuel()
