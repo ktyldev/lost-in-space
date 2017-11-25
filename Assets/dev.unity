@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 891662692}
+      - m_Target: {fileID: 2014000935}
         m_MethodName: Craft
         m_Mode: 1
         m_Arguments:
@@ -2328,7 +2328,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 891662692}
+      - m_Target: {fileID: 2014000935}
         m_MethodName: Cancel
         m_Mode: 1
         m_Arguments:
@@ -2573,6 +2573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   left: {fileID: 66762018}
   right: {fileID: 1440146096}
+  craftButton: {fileID: 874372852}
 --- !u!1 &2019438125
 GameObject:
   m_ObjectHideFlags: 0

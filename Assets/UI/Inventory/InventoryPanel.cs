@@ -35,17 +35,7 @@ public class InventoryPanel : MonoBehaviour {
     {
         _crafter.AddCraftingItem(element);
     }
-
-    public void Craft()
-    {
-        print("Craft");
-    }
-
-    public void Cancel()
-    {
-        _crafter.Cancel();
-    }
-
+    
     public void MakeFuel()
     {
         print("Make Fuel");
