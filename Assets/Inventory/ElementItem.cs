@@ -19,6 +19,6 @@ public class ElementItem : MonoBehaviour
 
         elementImage.SetActive(true);
         elementImage.GetComponent<Image>().sprite = Element.sprite;
-
+        GetComponentInChildren<Text>().text = Amount.ToString();
     }    
 }
