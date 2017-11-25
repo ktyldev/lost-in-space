@@ -25,4 +25,24 @@ public class InventoryPanel : MonoBehaviour {
     {
         print("Craft");
     }
+
+    public void Cancel()
+    {
+        print("Cancel");
+    }
+
+    public void MakeFuel()
+    {
+        print("Make Fuel");
+    }
+
+    public void Forward()
+    {
+        print("Forward");
+    }
+
+    public void Back()
+    {
+        print("Back");
+    }
 }
