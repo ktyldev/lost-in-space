@@ -6,10 +6,12 @@ public class InventoryPanel : MonoBehaviour {
 
     private bool _isHidden = true;
     private Animator _animator;
+    private ElementRow _row;
 
 	// Use this for initialization
 	void Start () {
         _animator = GetComponent<Animator>();
+        _row = GetComponentInChildren<ElementRow>();
 	}
 	
 	// Update is called once per frame
@@ -38,11 +40,11 @@ public class InventoryPanel : MonoBehaviour {
 
     public void Forward()
     {
-        print("Forward");
+        _row.Forward();
     }
 
     public void Back()
     {
-        print("Back");
+        _row.Back();
     }
 }

@@ -33,7 +33,7 @@ public class ElementRow : MonoBehaviour
 
     public void Forward()
     {
-        if (_currentIndex + itemLocations.Length > _inventory.GetContents().Length)
+        if (_currentIndex + itemLocations.Length >= _inventory.GetContents().Length)
             return;
 
         _currentIndex += itemLocations.Length;
@@ -61,7 +61,7 @@ public class ElementRow : MonoBehaviour
         for (int i = 0; i < itemLocations.Length; i++)
         {
             ElementItem eItem;
-            if (i >= invContent.Length)
+            if (i + _currentIndex >= invContent.Length)
             {
                 eItem = Instantiate(elementItem, itemLocations[i]).GetComponent<ElementItem>();
             }
