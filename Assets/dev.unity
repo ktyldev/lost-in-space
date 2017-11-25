@@ -154,7 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sectorTemplate: {fileID: 1444925357520816, guid: cae4609d7f085784ea8cc4a8c74dc549,
     type: 2}
-  sectorSize: 100
 --- !u!1 &684815319
 GameObject:
   m_ObjectHideFlags: 0
