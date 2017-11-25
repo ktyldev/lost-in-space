@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class Planet : MonoBehaviour
@@ -12,7 +11,6 @@ public class Planet : MonoBehaviour
 
     public GameObject graphicsRoot;
 
-    public AnimatorController animationController;
     public GameObject[] models;
     public Material[] surfaceMaterials;
     public Material[] ringMaterials;
@@ -36,11 +34,7 @@ public class Planet : MonoBehaviour
 
         // Set up model
         var model = Instantiate(models[Random.Range(0, models.Length)], graphicsRoot.transform);
-
-        // Set up animator
-        var animator = GetComponentInChildren<Animator>();
-        animator.runtimeAnimatorController = animationController;
-
+        
         // Set up materials
         var renderer = GetComponentInChildren<Renderer>();
         var mats = renderer.materials;
