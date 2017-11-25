@@ -8,6 +8,7 @@ public class Planet : MonoBehaviour
     public GameObject[] elements;
     public int maxElementAmount;
     public int minElementAmount;
+    public Material[] materials;
     
     private UIManager _ui;
     private Dictionary<Element, int> _elements;
@@ -24,6 +25,12 @@ public class Planet : MonoBehaviour
     {
         _ui = GameObject.FindGameObjectWithTag(GameTags.UI).GetComponent<UIManager>();
         PopulateElements();
+
+        var renderer = GetComponentInChildren<Renderer>();
+
+        var mats = renderer.materials;
+        mats[2] = materials[Random.Range(0, materials.Length)];
+        renderer.materials = mats;
     }
 
     // Update is called once per frame
