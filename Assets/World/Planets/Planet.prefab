@@ -332,6 +332,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a06ec6e4d4d8e54cba06da8cb7e6bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elements:
+  - {fileID: 1039168809397044, guid: 0b08b2527ca2de240a079f972f433e96, type: 2}
+  - {fileID: 1511331951702956, guid: 00bf6a22346ce1b4d98036c1f4a98ad8, type: 2}
+  - {fileID: 1778659306462152, guid: de50b726151ea28419cedca413188cd2, type: 2}
+  maxElementAmount: 0
+  minElementAmount: 10
 --- !u!135 &135879941647125664
 SphereCollider:
   m_ObjectHideFlags: 1
