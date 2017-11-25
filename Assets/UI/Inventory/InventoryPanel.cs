@@ -20,4 +20,9 @@ public class InventoryPanel : MonoBehaviour {
             _animator.SetBool("isHidden", _isHidden);
         }
 	}
+
+    public void Craft()
+    {
+        print("Craft");
+    }
 }
