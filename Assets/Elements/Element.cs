@@ -16,4 +16,9 @@ public class Element : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public override string ToString()
+    {
+        return elementName;
+    }
 }

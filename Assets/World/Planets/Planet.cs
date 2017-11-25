@@ -64,6 +64,9 @@ public class Planet : MonoBehaviour
 
     public Dictionary<Element, int> GetElements()
     {
+        if (!_hasElements)
+            return new Dictionary<Element, int>();
+
         _hasElements = false;
         return _elements;
     }

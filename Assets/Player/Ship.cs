@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Ship : MonoBehaviour
@@ -17,7 +18,7 @@ public class Ship : MonoBehaviour
     void Start()
     {
         FuelRemaining = startFuel;
-        _inv = GetComponentInChildren<Inventory>();
+        _inv = GetComponent<Inventory>();
     }
 
     // Update is called once per frame
@@ -53,7 +54,19 @@ public class Ship : MonoBehaviour
 
     private void Mine()
     {
-        _inv.AddElements(_nearbyPlanet.GetElements());
+        var planetElements = _nearbyPlanet.GetElements();
+
+        if (!planetElements.Any())
+        {
+            print("Got nothing!");
+        }
+
+        foreach (var item in planetElements)
+        {
+            print(string.Format("Got {0}: {1}", item.Key, item.Value));
+        }
+
+        _inv.AddElements(planetElements);
     }
 
     private Vector3 GetMoveDirection()
