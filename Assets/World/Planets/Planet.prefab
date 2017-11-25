@@ -81,12 +81,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a06ec6e4d4d8e54cba06da8cb7e6bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elements:
-  - {fileID: 1039168809397044, guid: 0b08b2527ca2de240a079f972f433e96, type: 2}
-  - {fileID: 1511331951702956, guid: 00bf6a22346ce1b4d98036c1f4a98ad8, type: 2}
-  - {fileID: 1778659306462152, guid: de50b726151ea28419cedca413188cd2, type: 2}
-  maxElementAmount: 0
-  minElementAmount: 10
+  maxNumberOfElements: 3
+  maxElementAmount: 3
+  minElementAmount: 0
   graphicsRoot: {fileID: 1477783256018576}
   animationController: {fileID: 9100000, guid: acd7d0d483d6ec347aee38b658615984, type: 2}
   models:

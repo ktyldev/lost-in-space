@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
-    public GameObject[] elements;
+    public int maxNumberOfElements;
     public int maxElementAmount;
     public int minElementAmount;
 
@@ -77,7 +77,7 @@ public class Planet : MonoBehaviour
 
     private void PopulateElements()
     {
-        var numberOfElements = Random.Range(0, elements.Length);
+        var numberOfElements = Random.Range(0, maxNumberOfElements);
         var fac = GameObject.FindGameObjectWithTag(GameTags.Elements)
             .GetComponent<ElementFactory>();
 
@@ -93,6 +93,8 @@ public class Planet : MonoBehaviour
             return new Dictionary<Element, int>();
 
         _hasElements = false;
-        return _elements;
+        return _elements
+            .Where(_ => _.Value > 0)
+            .ToDictionary(_ => _.Key, _ => _.Value);
     }
 }

@@ -7,8 +7,7 @@ public class ElementFactory : MonoBehaviour
 {
     public Sprite[] elementSprites;
     public GameObject element;
-    public GameObject[] elements;
-
+    
     private Element[] _elements;
 
     void Awake()
