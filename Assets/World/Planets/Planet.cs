@@ -51,19 +51,11 @@ public class Planet : MonoBehaviour
     private void PopulateElements()
     {
         var numberOfElements = Random.Range(0, elements.Length);
-        
-        for (int i = 0; i < numberOfElements; i++)
+        var fac = GameObject.FindGameObjectWithTag(GameTags.Elements)
+            .GetComponent<ElementFactory>();
+        foreach (var e in fac.GetElements(numberOfElements))
         {
-            var elementTemplate = elements[Random.Range(0, elements.Length)];
-
-            // Don't add an element the planet already has
-            if (_elements.Keys.Any(e => e.atomicNumber == elementTemplate.GetComponent<Element>().atomicNumber))
-                continue;
-            
-            var elementAmount = Random.Range(minElementAmount, maxElementAmount);
-            var element = Instantiate(elementTemplate, transform).GetComponent<Element>();
-
-            _elements[element] = elementAmount;
+            _elements[e] = Random.Range(minElementAmount, maxElementAmount);
         }
     }
 }
